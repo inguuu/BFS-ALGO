@@ -33,8 +33,8 @@ int main(){
 		cin >> M;
 
 		// 배열 초기화 및 큐 초기화
-		for (int i = 1; i <= N; i++) {
-			for (int j = 0; j <= M; j++) {
+		for (int i = 0; i <= N+1; i++) {
+			for (int j = 0; j <= M+1; j++) {
 				map[i][j] = 0;
 			}
 		}
@@ -56,7 +56,7 @@ int main(){
 
 
 		for (int i = 1; i <= N; i++) {
-			for (int j = 0; j < M; j++) {
+			for (int j = 1; j < M; j++) {
 				cin >> map[i][j];
 			}
 		}
@@ -82,6 +82,7 @@ int main(){
 				answer = now_count;
 				break;
 			}
+		
 
 			//과정
 			else {
@@ -93,7 +94,7 @@ int main(){
 					cout << "=====now for=====" << endl;
 					cout << "i: " << i << endl;
 					cout << nxt_row << "," << nxt_col << endl;
-
+					cout << map[nxt_row][nxt_col] << endl;
 					if (nxt_row >= 1 && nxt_row <= N && nxt_col >= 1 && nxt_col <= M) {
 						if (map[nxt_row][nxt_col] != 1) {
 
