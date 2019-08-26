@@ -75,6 +75,12 @@ int main(){
 					int nxt_col = now_row + dc[i];
 					int nxt_count = now_col+1;
 
+					if (nxt_row >= 1 && nxt_row <= N && nxt_col >= 1 && nxt_col <= M) {
+						if (map[nxt_row][nxt_col] != 1) {
+							map[nxt_row][nxt_col] == 1;
+							q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
+					   }
+					}
 					
 				}
 			}
