@@ -48,7 +48,6 @@ int main(){
 		cin >> E_c;
 
 
-
 		//시작하기 
 
 		q.push(make_pair(make_pair(S_r, S_c), 0));
@@ -69,11 +68,11 @@ int main(){
 			int now_row = q.front().first.first;
 			int now_col = q.front().first.second;
 			int now_count = q.front().second;
-			cout << "=====ig=====" << endl;
+		/*	cout << "=====ig=====" << endl;
 			cout << ig <<endl;
 			++ig;
 			cout << "=====now=====" << endl;
-			cout << now_row<<","<<now_col << endl;
+			cout << now_row<<","<<now_col << endl;*/
 			
 			q.pop();
 
@@ -91,16 +90,16 @@ int main(){
 					int nxt_col = now_col + dc[i];
 					int nxt_count = now_col+1;
 
-					cout << "=====now for=====" << endl;
+				/*	cout << "=====now for=====" << endl;
 					cout << "i: " << i << endl;
 					cout << nxt_row << "," << nxt_col << endl;
-					cout << map[nxt_row][nxt_col] << endl;
+					cout << map[nxt_row][nxt_col] << endl;*/
 					if (nxt_row >= 1 && nxt_row <= N && nxt_col >= 1 && nxt_col <= M) {
 						if (map[nxt_row][nxt_col] != 1) {
 
-							cout << "=====next====="<<endl;
+						/*	cout << "=====next====="<<endl;
 							cout << "i: "<<i << endl;
-							cout << nxt_row << "," << nxt_col << endl;
+							cout << nxt_row << "," << nxt_col << endl;*/
 							map[nxt_row][nxt_col] = 1;
 							q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
 					   }
