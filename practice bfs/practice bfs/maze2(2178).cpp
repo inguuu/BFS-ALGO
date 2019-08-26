@@ -27,22 +27,23 @@ int main(){
 		}
 	}
 	
-
+	
 	S_r = 1;
 	S_c = 1;
 	q.push(make_pair(make_pair(S_r, S_c), 0));
 
-	int answer = 0;
+	int answer = 1;
 	int ig = 4;
 	while (!q.empty()) {
 
-		ig--;
-		cout << "====="<<ig << endl;
+
 		int now_row = q.front().first.first;
 		int now_col = q.front().first.second;
 		int now_count = q.front().second;
 		q.pop();
 		map[now_row][now_col] = 0;
+		
+		cout << "===now==" << now_row<<","<<now_col << endl;
 
 		if (now_row == N && now_col == M) {
 			answer = now_count;
@@ -53,10 +54,11 @@ int main(){
 
 				int nxt_row = now_row + dr[i];
 				int nxt_col = now_col + dc[i];
-				int nxt_count = ++now_count;
+				int nxt_count = now_count+1;
 				
-				if (nxt_row>=2&&nxt_row<=N&&nxt_col>=2&&nxt_col<=M){
+				if (nxt_row>=1&&nxt_row<=N&&nxt_col>=1&&nxt_col<=M){
 					if (map[nxt_row][nxt_col] == 1) {
+						cout << "===nxt==" << nxt_row << "," << nxt_col << endl;
 						q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
 
 					}
