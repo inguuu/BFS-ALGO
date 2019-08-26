@@ -5,11 +5,15 @@ using namespace std;
 
 int main(){
 
-	queue <pair <pair <int, int>, int>> q;
+	queue <pair <pair <int, int>, int>> q; //시작점 이동횟수 삽입
 	int count = 0;
 	int N,M;
 	int S_r, S_c;
 	int E_r, E_c;
+
+	//동남서북
+	int dr[] = { 0,1,0,-1 };//남북
+	int dc[] = { 1,0,-1,0 };//동서
 
 	int map[1001][1001];
 	
@@ -18,6 +22,7 @@ int main(){
 
 	for (int t = 0; t < count; t++) {
 
+		// 배열 초기화 및 큐 초기화
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {
 				map[i][j] = 0;
@@ -26,6 +31,8 @@ int main(){
 		while (!q.empty()) {
 			q.pop();
 		}
+
+		// 입력 받기 
 		cin >> N;
 		cin >> M;
 
@@ -33,6 +40,9 @@ int main(){
 		cin >> S_c;
 		cin >> E_r;
 		cin >> E_c;
+
+		//시작하기 
+        
 
 
 
