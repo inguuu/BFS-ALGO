@@ -1,13 +1,17 @@
-#include <stdio.h>
-#include <iostream>
+#include<stdio.h>
+#include<vector>
+#include<algorithm> 
+#include<iostream>
 #include<queue>
 using namespace std;
 
 int main(){
 
+	
+	
 	queue <pair <pair <int, int>, int>> q; //시작점 이동횟수 삽입
 	int count = 0;
-	int N,M;
+	int N, M;
 	int S_r, S_c;
 	int E_r, E_c;
 
@@ -15,7 +19,7 @@ int main(){
 	int dr[] = { 0,1,0,-1 };
 	int dc[] = { 1,0,-1,0 };
 
-	int map[1001][1001];
+	int map[100][100];
 
 	int answer;
 	
@@ -23,6 +27,10 @@ int main(){
 	
 	
 	for (int t = 0; t < count; t++) {
+
+		// 입력 받기 
+		cin >> N;
+		cin >> M;
 
 		// 배열 초기화 및 큐 초기화
 		for (int i = 1; i <= N; i++) {
@@ -34,14 +42,18 @@ int main(){
 			q.pop();
 		}
 
-		// 입력 받기 
-		cin >> N;
-		cin >> M;
-
 		cin >> S_r;
 		cin >> S_c;
 		cin >> E_r;
 		cin >> E_c;
+
+
+
+		//시작하기 
+
+		q.push(make_pair(make_pair(S_r, S_c), 0));
+		map[S_r][S_c] = 1;
+
 
 		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j < M; j++) {
@@ -49,17 +61,20 @@ int main(){
 			}
 		}
 
-		//시작하기 
-
-		q.push(make_pair(make_pair(S_r, S_c), 0));
-		map[S_r][S_c] = 1;
-
 		// go
 		answer = -1;
-		while (!q.empty) {
+		int ig = 0;
+		while (!q.empty()) {
+			
 			int now_row = q.front().first.first;
 			int now_col = q.front().first.second;
 			int now_count = q.front().second;
+			cout << "=====ig=====" << endl;
+			cout << ig <<endl;
+			++ig;
+			cout << "=====now=====" << endl;
+			cout << now_row<<","<<now_col << endl;
+			
 			q.pop();
 
 			//정답
@@ -72,12 +87,20 @@ int main(){
 			else {
 				for (int i = 0; i < 4; i++) {
 					int nxt_row = now_row + dr[i];
-					int nxt_col = now_row + dc[i];
+					int nxt_col = now_col + dc[i];
 					int nxt_count = now_col+1;
+
+					cout << "=====now for=====" << endl;
+					cout << "i: " << i << endl;
+					cout << nxt_row << "," << nxt_col << endl;
 
 					if (nxt_row >= 1 && nxt_row <= N && nxt_col >= 1 && nxt_col <= M) {
 						if (map[nxt_row][nxt_col] != 1) {
-							map[nxt_row][nxt_col] == 1;
+
+							cout << "=====next====="<<endl;
+							cout << "i: "<<i << endl;
+							cout << nxt_row << "," << nxt_col << endl;
+							map[nxt_row][nxt_col] = 1;
 							q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
 					   }
 					}
@@ -86,16 +109,13 @@ int main(){
 			}
 
 		}
-		
 	
-
-        
-
+		cout << "#" << t + 1 << " " << answer;
 
 
 	}
 	
-	
+	return 0;
 
 }
 
