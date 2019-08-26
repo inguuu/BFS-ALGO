@@ -54,7 +54,20 @@ int main(){
 		q.push(make_pair(make_pair(S_r, S_c), 0));
 		map[S_r][S_c] = 1;
 
+		// go
 		answer = -1;
+		while (!q.empty) {
+			int now_row = q.front().first.first;
+			int now_col = q.front().first.second;
+			int now_count = q.front().second;
+			q.pop();
+
+			if (now_row == E_r && now_col == E_c) {
+				answer = now_count;
+				break;
+			}
+
+		}
 		
 	
 
