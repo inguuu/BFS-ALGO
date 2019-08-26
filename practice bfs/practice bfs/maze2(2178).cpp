@@ -12,8 +12,8 @@ int main(){
 	//µ¿³²¼­ºÏ
 	int dr[] = { 0,1,0,-1 };
 	int dc[] = { 1,0,-1,0 };
-	int S_r, S_c;
-	int E_r, E_c;
+	//int S_r, S_c;
+	//int E_r, E_c;
 
 	cin >> N;
 	cin >> M;
