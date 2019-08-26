@@ -16,10 +16,12 @@ int main(){
 	int dc[] = { 1,0,-1,0 };//동서
 
 	int map[1001][1001];
+
+	int answer;
 	
 	cin >> count;
 	
-
+	
 	for (int t = 0; t < count; t++) {
 
 		// 배열 초기화 및 큐 초기화
@@ -41,7 +43,21 @@ int main(){
 		cin >> E_r;
 		cin >> E_c;
 
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				cin >> map[i][j];
+			}
+		}
+
 		//시작하기 
+
+		q.push(make_pair(make_pair(S_r, S_c), 0));
+		map[S_r][S_c] = 1;
+
+		answer = -1;
+		
+	
+
         
 
 
