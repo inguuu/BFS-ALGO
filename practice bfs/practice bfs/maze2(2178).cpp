@@ -30,7 +30,7 @@ int main(){
 	
 	S_r = 1;
 	S_c = 1;
-	q.push(make_pair(make_pair(S_r, S_c), 0));
+	q.push(make_pair(make_pair(S_r, S_c), 1));
 
 	int answer = 1;
 	int ig = 4;
@@ -47,6 +47,7 @@ int main(){
 
 		if (now_row == N && now_col == M) {
 			answer = now_count;
+			//cout << answer;
 			break;
 		}
 		else {
@@ -58,7 +59,7 @@ int main(){
 				
 				if (nxt_row>=1&&nxt_row<=N&&nxt_col>=1&&nxt_col<=M){
 					if (map[nxt_row][nxt_col] == 1) {
-						cout << "===nxt==" << nxt_row << "," << nxt_col << endl;
+						//cout << "===nxt==" << nxt_row << "," << nxt_col << endl;
 						q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
 
 					}
