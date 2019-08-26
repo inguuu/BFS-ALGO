@@ -11,9 +11,9 @@ int main(){
 	int S_r, S_c;
 	int E_r, E_c;
 
-	//동남서북
-	int dr[] = { 0,1,0,-1 };//남북
-	int dc[] = { 1,0,-1,0 };//동서
+	//동남서북 나중에 포문으로 사용된다 하나의 쌍으로 
+	int dr[] = { 0,1,0,-1 };
+	int dc[] = { 1,0,-1,0 };
 
 	int map[1001][1001];
 
@@ -25,7 +25,7 @@ int main(){
 	for (int t = 0; t < count; t++) {
 
 		// 배열 초기화 및 큐 초기화
-		for (int i = 0; i <= N; i++) {
+		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j <= M; j++) {
 				map[i][j] = 0;
 			}
@@ -43,7 +43,7 @@ int main(){
 		cin >> E_r;
 		cin >> E_c;
 
-		for (int i = 0; i < N; i++) {
+		for (int i = 1; i <= N; i++) {
 			for (int j = 0; j < M; j++) {
 				cin >> map[i][j];
 			}
@@ -62,9 +62,21 @@ int main(){
 			int now_count = q.front().second;
 			q.pop();
 
+			//정답
 			if (now_row == E_r && now_col == E_c) {
 				answer = now_count;
 				break;
+			}
+
+			//과정
+			else {
+				for (int i = 0; i < 4; i++) {
+					int nxt_row = now_row + dr[i];
+					int nxt_col = now_row + dc[i];
+					int nxt_count = now_col+1;
+
+					
+				}
 			}
 
 		}
