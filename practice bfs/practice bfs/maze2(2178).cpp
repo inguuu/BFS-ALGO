@@ -18,26 +18,31 @@ int main(){
 	cin >> N;
 	cin >> M;
 
-	
+	cout << N << endl;
+	cout << M << endl;
+
 	for (int i = 1; i < N+1; i++) {
-		for (int j = 1; j < M+1; j++) {
-			cin >> map[i][j];
+		for (int j = 1; j <M+1; j++) {
+			scanf_s("%1d", &map[i][j]);
 		}
 	}
+	
 
 	S_r = 1;
 	S_c = 1;
 	q.push(make_pair(make_pair(S_r, S_c), 0));
 
 	int answer = 0;
+	int ig = 4;
+	while (!q.empty()) {
 
-	/*while (!q.empty()) {
-
+		ig--;
+		cout << "====="<<ig << endl;
 		int now_row = q.front().first.first;
 		int now_col = q.front().first.second;
 		int now_count = q.front().second;
 		q.pop();
-		map[now_row][now_col] = 1;
+		map[now_row][now_col] = 0;
 
 		if (now_row == N && now_col == M) {
 			answer = now_count;
@@ -51,7 +56,7 @@ int main(){
 				int nxt_count = ++now_count;
 				
 				if (nxt_row>=2&&nxt_row<=N&&nxt_col>=2&&nxt_col<=M){
-					if (map[nxt_row][nxt_col] == 0) {
+					if (map[nxt_row][nxt_col] == 1) {
 						q.push(make_pair(make_pair(nxt_row, nxt_col), nxt_count));
 
 					}
@@ -59,8 +64,9 @@ int main(){
 
 			}
 		}
+		answer = now_count;
 
-	}*/
+	}
 
 	cout << answer << endl;
 }
