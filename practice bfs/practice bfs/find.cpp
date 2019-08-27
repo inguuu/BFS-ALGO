@@ -7,8 +7,52 @@ using namespace std;
 
 int main() {
 
+	int N;
+	int K;
+	int count = 0;
 
+	cin >> N;
+	cin >> K;
 
+	queue <int> q;
+	
+	int visited[100001] = { 0, };
+
+	q.push(N);
+	visited[N] = 1;
+
+	while (!q.empty()) {
+		
+		int now;
+		now = q.front(); 
+		q.pop();
+		
+		cout << "now" << now << endl;
+		cout << "vnow" << visited[now] << endl;
+		if (now == K) {
+			count = visited[now];
+			break;
+		}
+
+		if (now + 1 < 100001&&visited[now+1]<1) {
+			
+			q.push(now + 1);
+			visited[now + 1];
+		}
+		if (now - 1 >0 && visited[now - 1] < 1) {
+			
+			q.push(now - 1);
+			visited[now - 1];
+		}
+		if (now *2 < 100001 && visited[now *2] < 1) {
+		
+			q.push(now * 2);
+			visited[now *2];
+		}
+	
+	}
+	
+	cout << count <<endl;
 
 }
 
