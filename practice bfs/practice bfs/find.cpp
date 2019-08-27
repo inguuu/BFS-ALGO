@@ -37,17 +37,17 @@ int main() {
 		if (now + 1 < 100001&&visited[now+1]<1) {
 			
 			q.push(now + 1);
-			visited[now + 1];
+			visited[now + 1] = visited[now] + 1;
 		}
 		if (now - 1 >0 && visited[now - 1] < 1) {
 			
 			q.push(now - 1);
-			visited[now - 1];
+			visited[now - 1] = visited[now] + 1;
 		}
 		if (now *2 < 100001 && visited[now *2] < 1) {
 		
 			q.push(now * 2);
-			visited[now *2];
+			visited[now *2]=visited[now]+1;
 		}
 	
 	}
