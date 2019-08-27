@@ -27,10 +27,10 @@ int main() {
 		now = q.front(); 
 		q.pop();
 		
-		cout << "now" << now << endl;
-		cout << "vnow" << visited[now] << endl;
+		cout << "now: " << now << endl;
+		cout << "visted[now]: " << visited[now] << endl;
 		if (now == K) {
-			count = visited[now];
+			count = visited[now]-1;
 			break;
 		}
 
