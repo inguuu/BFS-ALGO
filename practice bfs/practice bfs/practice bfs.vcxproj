@@ -148,6 +148,7 @@
     <ClCompile Include="maze1.cpp" />
     <ClCompile Include="maze2(2178).cpp" />
     <ClCompile Include="maze2(memory).cpp" />
+    <ClCompile Include="tomatocpp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
