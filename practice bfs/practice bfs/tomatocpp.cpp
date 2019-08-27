@@ -31,6 +31,14 @@ int main(){
 		}
 	}
 
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= m; j++) {
+			cout<< map[i][j];
+			
+		}
+	}
+	cout << "   " << endl;
+
 	int now_count;
 	while (!q.empty()) {
 		int now_row = q.front().first;
@@ -45,8 +53,9 @@ int main(){
 			int nxt_col = now_col + dc[i];
 			//cout << "nxt: " << nxt_row << "," << nxt_col;
 			if (nxt_col >= 0 && nxt_col < 1001 && nxt_row >= 0 && nxt_row < 1001) {
-				if (visited[nxt_row][nxt_col] == 0&&map[nxt_row][nxt_col]==0) {
-					cout <<nxt_row<<", "<<nxt_col << endl;
+				if (visited[nxt_row][nxt_col] == 0 && map[nxt_row][nxt_col]==0) {
+					cout <<nxt_row<<", "<<nxt_col << " "<< map[nxt_row][nxt_col] <<endl;
+					
 					q.push(make_pair(nxt_row, nxt_col));
 					visited[nxt_row][nxt_col] = 1;
 					map[nxt_row][nxt_col] = map[now_row][now_col] + 1;
