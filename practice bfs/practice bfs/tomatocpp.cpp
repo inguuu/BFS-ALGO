@@ -20,8 +20,8 @@ int main(){
 	cin >> n;
 	cin >> m;
 
-	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+	for (int i = 1; i <= m; i++) {
+		for (int j = 1; j <= n; j++) {
 			cin >> map[i][j];
 			if (map[i][j] == 1) {
 				q.push(make_pair(i, j));
@@ -31,12 +31,14 @@ int main(){
 		}
 	}
 
-	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
-			cout<< map[i][j];
+	for (int i = 1; i <= m; i++) {
+		for (int j = 1; j <= n; j++) {
+			cout << i << ", " << j << " " << map[i][j] << endl;
 			
 		}
 	}
+
+	cout << "확인"<<map[2][1] << endl;
 	cout << "   " << endl;
 
 	int now_count;
@@ -51,6 +53,7 @@ int main(){
 		for (int i = 0; i < 4; i++) {
 			int nxt_row = now_row + dr[i];
 			int nxt_col = now_col + dc[i];
+			
 			//cout << "nxt: " << nxt_row << "," << nxt_col;
 			if (nxt_col >= 0 && nxt_col < 1001 && nxt_row >= 0 && nxt_row < 1001) {
 				if (visited[nxt_row][nxt_col] == 0 && map[nxt_row][nxt_col]==0) {
@@ -65,15 +68,15 @@ int main(){
 		now_count = map[now_row][now_col];
 	}
 
-	for (int i = 1; i <= n; i++) {
+	for (int i = 1; i <= m; i++) {
 		
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= n; j++) {
 			cout << "====확인==== ";
 			cout << map[i][j] << " ";
 			cout << endl;
 			if (map[i][j] == 0) {
 
-				now_count = -1;
+				now_count = 0;
 				break;
 			}
 		}
