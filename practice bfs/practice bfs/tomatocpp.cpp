@@ -31,15 +31,15 @@ int main(){
 		}
 	}
 
-	for (int i = 1; i <= m; i++) {
-		for (int j = 1; j <= n; j++) {
-			cout << i << ", " << j << " " << map[i][j] << endl;
-			
-		}
-	}
+	//for (int i = 1; i <= m; i++) {
+	//	for (int j = 1; j <= n; j++) {
+	//		cout << i << ", " << j << " " << map[i][j] << endl;
+	//		
+	//	}
+	//}
 
-	cout << "확인"<<map[2][1] << endl;
-	cout << "   " << endl;
+	//cout << "확인"<<map[2][1] << endl;
+	//cout << "   " << endl;
 
 	int now_count;
 	while (!q.empty()) {
@@ -57,7 +57,7 @@ int main(){
 			//cout << "nxt: " << nxt_row << "," << nxt_col;
 			if (nxt_col >= 0 && nxt_col < 1001 && nxt_row >= 0 && nxt_row < 1001) {
 				if (visited[nxt_row][nxt_col] == 0 && map[nxt_row][nxt_col]==0) {
-					cout <<nxt_row<<", "<<nxt_col << " "<< map[nxt_row][nxt_col] <<endl;
+					//cout <<nxt_row<<", "<<nxt_col << " "<< map[nxt_row][nxt_col] <<endl;
 					
 					q.push(make_pair(nxt_row, nxt_col));
 					visited[nxt_row][nxt_col] = 1;
@@ -71,9 +71,9 @@ int main(){
 	for (int i = 1; i <= m; i++) {
 		
 		for (int j = 1; j <= n; j++) {
-			cout << "====확인==== ";
+			/*cout << "====확인==== ";
 			cout << map[i][j] << " ";
-			cout << endl;
+			cout << endl;*/
 			if (map[i][j] == 0) {
 
 				now_count = 0;
