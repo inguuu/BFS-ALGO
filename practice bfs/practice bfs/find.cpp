@@ -39,7 +39,7 @@ int main() {
 			q.push(now + 1);
 			visited[now + 1] = visited[now] + 1;
 		}
-		if (now - 1 >0 && visited[now - 1] < 1) {
+		if (now - 1 >=0 && visited[now - 1] < 1) {
 			
 			q.push(now - 1);
 			visited[now - 1] = visited[now] + 1;
@@ -52,7 +52,7 @@ int main() {
 	
 	}
 	
-	cout << count <<endl;
+	cout << count;
 
 }
 
