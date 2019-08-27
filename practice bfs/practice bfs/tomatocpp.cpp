@@ -10,27 +10,37 @@ int main(){
 	int n, m;
 	queue < pair<int, int >> q;
      
-	int map[1001][1001];
-	int visited[1001][1001] = { 0, };
+	int map[1002][1002];
+	int visited[1002][1002];
 	
 	int dr[] = {1,0,-1,0};
 	int dc[] = {0,1,0,-1};
-
 	
-	cin >> n;
 	cin >> m;
+	cin >> n;
 
-	for (int i = 1; i <= m; i++) {
-		for (int j = 1; j <= n; j++) {
+	int min;
+	
+	int zerocount = 0; // 안익은 토마토 개수
+
+	for (int i = 0; i <n; i++) {
+		for (int j = 0; j < m; j++) {
 			cin >> map[i][j];
+			visited[i][j] = 0;
 			if (map[i][j] == 1) {
 				q.push(make_pair(i, j));
 				visited[i][j] = 1;
 				
 			}
+			else if (map[i][j] == 0)
+				zerocount++;
 		}
 	}
-
+	//미리 모두 익어있는지 확인
+	if (zerocount == 0) {
+		cout << "0" << endl;
+		return 0;
+	}
 	//for (int i = 1; i <= m; i++) {
 	//	for (int j = 1; j <= n; j++) {
 	//		cout << i << ", " << j << " " << map[i][j] << endl;
@@ -40,47 +50,68 @@ int main(){
 
 	//cout << "확인"<<map[2][1] << endl;
 	//cout << "   " << endl;
-
-	int now_count;
-	while (!q.empty()) {
-		int now_row = q.front().first;
-		int now_col = q.front().second;
-	
+	min = 0;
+	int now_count=1;
 		
-		visited[now_row][now_col] = 1;
-		q.pop();
+	while (!q.empty()) {
+		int size = q.size();
+		while (size--) {
+			// 현재 min단계에 있는 원소의 개수만큼만 pop해서
+			// 다음 단계의 원소들을 큐에 삽입
+			// 이 while문이 끝나게 되면 큐에는
+			// 다음 단계의 원소들만 남아있게 된다
+			int x = q.front().first;
+			int y = q.front().second;
+			q.pop();
 
-		for (int i = 0; i < 4; i++) {
-			int nxt_row = now_row + dr[i];
-			int nxt_col = now_col + dc[i];
-			
-			//cout << "nxt: " << nxt_row << "," << nxt_col;
-			if (nxt_col >= 0 && nxt_col < 1001 && nxt_row >= 0 && nxt_row < 1001) {
-				if (visited[nxt_row][nxt_col] == 0 && map[nxt_row][nxt_col]==0) {
-					//cout <<nxt_row<<", "<<nxt_col << " "<< map[nxt_row][nxt_col] <<endl;
-					
-					q.push(make_pair(nxt_row, nxt_col));
-					visited[nxt_row][nxt_col] = 1;
-					map[nxt_row][nxt_col] = map[now_row][now_col] + 1;
+			for (int i = 0; i < 4; i++) {
+				int nx = x + dr[i];
+				int ny = y + dc[i];
+				if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
+
+				if (!visited[nx][ny]) {
+					if (map[nx][ny] == 0) {
+						visited[nx][ny] = 1;
+						map[nx][ny] = 1;
+						q.push(make_pair(nx, ny));
+					}
 				}
 			}
 		}
-		now_count = map[now_row][now_col];
+		if (q.empty())
+			break;
+
+		min++;
 	}
 
-	for (int i = 1; i <= m; i++) {
-		
-		for (int j = 1; j <= n; j++) {
-			/*cout << "====확인==== ";
-			cout << map[i][j] << " ";
-			cout << endl;*/
-			if (map[i][j] == 0) {
 
-				now_count = 0;
-				break;
-			}
+		bool lastcheck = true;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (map[i][j] == 0)
+				lastcheck = false;
 		}
 	}
-	cout << now_count-1 << endl;
+	if (!lastcheck) {
+		cout << "-1" << endl;
+		return 0;
+	}
+
+	cout << min << endl;
+	return 0;
+	//for (int i = 0; i <= n; i++) {
+	//	
+	//	for (int j = 0; j <= m; j++) {
+	//		/*cout << "====확인==== ";
+	//		cout << map[i][j] << " ";
+	//		cout << endl;*/
+	//		if (map[i][j] == 0) {
+
+	//			now_count = 0;
+	//			break;
+	//		}
+	//	}
+	//}
+	//cout << now_count-1 << endl;
 	
 }
