@@ -149,6 +149,7 @@
     <ClCompile Include="maze1.cpp" />
     <ClCompile Include="maze2(2178).cpp" />
     <ClCompile Include="maze2(memory).cpp" />
+    <ClCompile Include="mytomato.cpp" />
     <ClCompile Include="tomatocpp.cpp" />
     <ClCompile Include="totocpp.cpp" />
   </ItemGroup>

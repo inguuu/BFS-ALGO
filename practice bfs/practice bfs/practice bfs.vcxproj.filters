@@ -39,5 +39,8 @@
     <ClCompile Include="totocpp.cpp">
       <Filter>소스 파일\tomato</Filter>
     </ClCompile>
+    <ClCompile Include="mytomato.cpp">
+      <Filter>소스 파일\tomato</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
